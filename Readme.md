@@ -1,8 +1,8 @@
-##node IAM role.
+## node IAM role.
 kops does not add the "AWSXrayWriteOnlyAccess" IAM role to the nodes.
 go to IAM console and add "AWSXrayWriteOnlyAccess" IAM Policy to the "nodes.example.cluster.k8s.local" Role
 
-##launch xray daemonset
+## launch xray daemonset
 
 kubectl create -f daemonsetxray.yaml --record
 
@@ -23,8 +23,8 @@ CMD ["/usr/bin/xray", "--bind=0.0.0.0:2000"]
 ```
 
 
-##launch pyflask app with xray deployment
+## launch pyflask app with xray deployment
 kubectl create -f flaskyxray-deployment.yaml --record
 
-##make pyflask deployment as a svc
+## make pyflask deployment as a svc
 kubectl create -f flaskyxray-service.yaml --record
