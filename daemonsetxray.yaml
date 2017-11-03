@@ -1,0 +1,19 @@
+apiVersion: extensions/v1beta1
+kind: DaemonSet
+metadata:
+  name: xray
+spec:
+  template:
+    metadata:
+      labels:
+        tier: monitoring
+        name: xray
+    spec:
+      containers:
+      - name: xray
+        image: kopi/xray
+        ports:
+         - name: xrayport
+           containerPort: 2000
+           hostPort: 2000
+           protocol: UDP
