@@ -1,0 +1,17 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: flaskxray-deployment 
+spec:
+  replicas: 3 
+  template:
+    metadata:
+      labels:
+        app: flaskxray-pod
+    spec:
+      containers:
+      - name: flaskxray-container 
+        image: kopi/flaskxray:latest
+        imagePullPolicy: IfNotPresent 
+        ports: 
+        - containerPort: 5000
